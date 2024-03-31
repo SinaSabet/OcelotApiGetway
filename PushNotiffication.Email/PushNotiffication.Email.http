@@ -1,0 +1,6 @@
+@PushNotiffication.Email_HostAddress = http://localhost:5147
+
+GET {{PushNotiffication.Email_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

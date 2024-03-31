@@ -1,0 +1,36 @@
+{
+  "QoSOptions": {
+    "ExceptionsAllowedBeforeBreaking": 2,
+    "DurationOfBreak": 1000,
+    "TimeoutValue": 5000
+  },
+
+  "Routes": [
+    {
+      "ServiceName": "EmailService",
+      "DownstreamPathTemplate": "/api/sms/sendsms",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/sms/sendsms",
+      "UpstreamHttpMethod": [ "GET" ]
+
+
+    },
+    {
+      "ServiceName": "EmailService",
+      "DownstreamPathTemplate": "/api/email/sendemail",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/email",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "UseServiceDiscovery": true,
+    "ServiceDiscoveryProvider": {
+      "Schema": "http",
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}
